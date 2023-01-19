@@ -41,5 +41,11 @@ namespace SistemaVendas.Repository
             _context.Customers.Remove(customer);
             _context.SaveChanges();
         }
+
+        public List<Customer> GetAllCustomers()
+        {
+            var customers = _context.Customers.OrderBy(x => x.Name).ToList();
+            return customers;
+        }
     }
 }

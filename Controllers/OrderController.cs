@@ -42,5 +42,53 @@ namespace SistemaVendas.Controllers
                 return NotFound( new { Mensagem = "Order not found"});
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var order = _repository.GetById(id);
+
+            if(order is not null)
+            {
+                _repository.DeleteOrder(order);
+                return NoContent();
+            }
+            else
+            {
+                return NotFound( new { Mensagem = "Order not found"});
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, UpdateOrderDTO dto)
+        {
+            var order = _repository.GetById(id);
+
+            if (order is not null)
+            {
+                order.MapUpdateOrder(dto);
+                _repository.UpdateOrder(order);
+                return Ok(order);
+            }
+            else
+            {
+                return NotFound(new { Mensagem = "Order not found"});
+            }
+        }
+
+        [HttpGet("GetAllOrders")]
+        public IActionResult GetAllOrders()
+        {
+            var orders = _repository.GetAllOrders();
+
+            if (orders is not null)
+            {
+                return Ok(orders);
+            }
+            else
+            {
+                return NotFound(new { Mensagem = "There aren't sellers registered"});
+            }
+        }
     }
 }

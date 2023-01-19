@@ -23,6 +23,12 @@ namespace SistemaVendas.Models
             Password = dto.Password;
         }
 
+        public Seller(LoginSellerDTO dto)
+        {
+            Login = dto.Login;
+            Password = dto.Password;
+        }
+
         public void MapUpdateSeller(UpdateSellerDTO dto)
         {
             Name = dto.Name;

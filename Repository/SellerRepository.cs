@@ -63,6 +63,12 @@ namespace SistemaVendas.Repository
         {
             return _context.Sellers.OrderBy(x => x.Id).ToList();
         }
+
+        public Seller FindByLogin(Seller seller)
+        {
+            var sellerFound = _context.Sellers.SingleOrDefault(x => x.Login == seller.Login && x.Password == seller.Password);
+            return sellerFound;
+        }
     }
     
 }

@@ -25,5 +25,12 @@ namespace SistemaVendas.Models
             SellerId = dto.SellerId;
             CustomerId = dto.CustomerId;
         }
+
+        public void MapUpdateOrder(UpdateOrderDTO dto)
+        {
+            Date = dto.Date;
+            SellerId = dto.SellerId;
+            CustomerId = dto.CustomerId;
+        }
     }
 }

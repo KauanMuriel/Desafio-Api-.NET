@@ -32,5 +32,24 @@ namespace SistemaVendas.Repository
                                        .FirstOrDefault(x => x.Id == id);
             return order;
         }
+
+        public void DeleteOrder(Order order)
+        {
+            _context.Orders.Remove(order);
+            _context.SaveChanges();
+        }
+
+        public Order UpdateOrder(Order order)
+        {
+            _context.Orders.Update(order);
+            _context.SaveChanges();
+
+            return order;
+        }
+
+        public List<Order> GetAllOrders()
+        {
+            return _context.Orders.OrderBy(x => x.Date).ToList();
+        }
     }
 }

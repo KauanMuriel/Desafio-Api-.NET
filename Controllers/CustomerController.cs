@@ -74,5 +74,20 @@ namespace SistemaVendas.Controllers
                 return NotFound(new { Message = "Customer not found"});
             }
         }
+
+        [HttpGet("GetAllCustomers")]
+        public IActionResult GetAllCustomers()
+        {
+            var customers = _repository.GetAllCustomers();
+
+            if(customers is not null)
+            {
+                return Ok(customers);
+            }
+            else
+            {
+                return NotFound(new { Mensagem = "There isn't customers registered"});
+            }
+        }
     }
 }
