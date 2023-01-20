@@ -89,5 +89,21 @@ namespace SistemaVendas.Controllers
                 return NotFound(new { Mensagem = "There isn't customers registered"});
             }
         }
+
+        [HttpPost("Login")]
+        public IActionResult Login(LoginCustomerDTO dto)
+        {
+            var customerSended = new Customer(dto);
+            var customerFound = _repository.FindByLogin(customerSended);
+
+            if(customerFound is not null)
+            {
+                return Ok(true);
+            }
+            else 
+            {
+                return NotFound(new { Message = "The credentials don't match"});
+            }
+        }
     }
 }

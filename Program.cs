@@ -12,6 +12,7 @@ builder.Services.AddScoped<SellerRepository>();
 builder.Services.AddScoped<CustomerRepository>();
 builder.Services.AddScoped<OrderRepository>();
 builder.Services.AddScoped<ServiceRepository>();
+builder.Services.AddScoped<OrderItemRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

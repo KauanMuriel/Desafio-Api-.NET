@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SistemaVendas.Dto;
+using SistemaVendas.Dto.CustomerDTO;
 
 namespace SistemaVendas.Models
 {
@@ -20,6 +21,12 @@ namespace SistemaVendas.Models
         public Customer(RegisterCustomerDTO dto)
         {
             Name = dto.Name;
+            Login = dto.Login;
+            Password = dto.Password;
+        }
+
+        public Customer(LoginCustomerDTO dto)
+        {
             Login = dto.Login;
             Password = dto.Password;
         }

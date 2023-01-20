@@ -47,5 +47,11 @@ namespace SistemaVendas.Repository
             var customers = _context.Customers.OrderBy(x => x.Name).ToList();
             return customers;
         }
+
+        public Customer FindByLogin(Customer customer)
+        {
+            var customerFound = _context.Customers.SingleOrDefault(x => x.Login == customer.Login && x.Password == customer.Password);
+            return customerFound;
+        }
     }
 }
